@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "alascaxt.h"
+#include "axt.h"
 
 inline unsigned int axt_to_uint32(unsigned int axt_uint32) {
   unsigned char* buf = (unsigned char*)&axt_uint32;
@@ -132,7 +132,7 @@ int axt_connect(const char *host, int *sd) {
 	memcpy(&sad.sin_addr, ptrh->h_addr, ptrh->h_length);
 
 	/* Map TCP transport protocol name to protocol number. */
-	if ( ((int)(ptrp = getprotobyname("tcp"))) == 0) {
+	if ( ((ptrp = getprotobyname("tcp"))) == 0) {
 		fprintf(stderr, "Cannot map \"tcp\" to protocol number");
 		exit(1);
 	}

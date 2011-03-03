@@ -4,10 +4,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#ifndef GENOM
+
 #include <stdlib.h>
 #include <stdio.h>
-#endif
 
 /*! Maximum number of points possible for Alasca XT */
 #define AXT_MAX_SCAN_POINTS 8648
@@ -96,8 +95,6 @@ typedef struct _AXT_SCAN_STR{
 	AXT_SCAN_POINT_STR points[AXT_MAX_SCAN_POINTS];
 } AXT_SCAN_STR;
 
-#ifndef GENOM
-
 /*! \brief Return current time
   @returns The current time in [s]
 */
@@ -112,8 +109,6 @@ int axt_connect(const char *host, int *sd);
 
 /*! \brief Closes connection to the scanner
   @param sd Handle to socket
-  @param *f FILE_ptr to dump to
-  @param *scan Scan to be dumped
 */
 void axt_close(int sd);
 
@@ -137,8 +132,6 @@ void axt_dump_scan(FILE* f, AXT_SCAN_STR *scan);
 void axt_dump_scan_line(FILE* f, AXT_SCAN_STR *scan);
 
 int axt_get_scan_from_file(FILE* f, AXT_SCAN_STR *scan);
-
-#endif //GENOM
 
 #ifdef __cplusplus
 }
