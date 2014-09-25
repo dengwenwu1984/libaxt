@@ -47,3 +47,10 @@ remake_distribute_deb(
   DEPENDS remake pkg-config doxygen
   PASS CMAKE_BUILD_TYPE LIBAXT_GIT_REVISION
 )
+remake_distribute_deb(
+  DISTRIBUTION trusty
+  SECTION libs
+  UPLOAD ppa:kralf/asl
+  DEPENDS remake pkg-config doxygen
+  PASS CMAKE_BUILD_TYPE LIBAXT_GIT_REVISION
+)
